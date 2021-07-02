@@ -65,6 +65,9 @@ for d in */ ; do
 	cd "$ROOT_FOLDER"
 done
 
+cd "$ROOT_FOLDER/$FILES_NAME"
+rm -rf */
+
 echo "===================================="
 echo "sending to moss..."
 cd "$ROOT_FOLDER"
