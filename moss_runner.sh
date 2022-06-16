@@ -50,17 +50,22 @@ for d in */ ; do
 	then
 		unzip -o *.zip
 		archivename="$(basename *.zip .zip)"
-	else
+	elif [[ `find . -name "*.rar"` ]]
+	then
     	unar *.rar
 		archivename="$(basename *.rar .rar)"
+	else
+		echo "Warning: No compressed files found."
 	fi
+
 	remove_spaces
-	if [[ `find . -name "*.ipynb"` ]]
+	if [[ `find . -name "[!.]*.ipynb"` ]]
 	then
 		cd "$ROOT_FOLDER/$FILES_NAME"
 		mkdir "$d"
 		cd "$ROOT_FOLDER/$d"
 	else
+		echo "Warning: No .ipynb files found."
 		echo "ignoring $d"
 		continue
 	fi
