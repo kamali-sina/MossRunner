@@ -2,9 +2,21 @@
 
 if [ $# -eq 0 ]
   then
-    echo "No arguments supplied"
+    echo "ERROR: No arguments supplied"
 	exit
 fi
+
+if ! type jupyter-nbconvert > /dev/null; then
+  echo "DEPENDANCY ERROR: no \"jupyter-nbconvert\" command found. install it and try again"
+  exit
+fi
+
+if ! type unar > /dev/null; then
+  echo "DEPENDANCY ERROR: no \"unar\" command found. install it and try again"
+  exit
+fi
+
+
 
 rm -rf */
 
